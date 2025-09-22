@@ -133,7 +133,7 @@ describe('getJsonType', () => {
     it('should generate type declaration for multiline format', () => {
       const result = getJsonType(testObj, {
         typeName: 'UserProfile',
-        multiline: true
+        multiline: true,
       });
       const expected = `type UserProfile = {
   name: string;
@@ -149,7 +149,7 @@ describe('getJsonType', () => {
       const result = getJsonType(testObj, {
         typeName: 'UserData',
         multiline: true,
-        indentSize: 4
+        indentSize: 4,
       });
       const expected = `type UserData = {
     name: string;
@@ -174,9 +174,9 @@ describe('getJsonType', () => {
 
   // Error handling tests
   describe('error handling', () => {
-    it('should return "unknown" by default for unsupported types', () => {
+    it('should return "any" by default for unsupported types', () => {
       const result = getJsonType(undefined as any);
-      expect(result).toBe('unknown');
+      expect(result).toBe('any');
     });
 
     it('should throw error when throwOnUnknown is true', () => {
