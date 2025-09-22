@@ -1,4 +1,7 @@
 # get-json-type
+[![npm](https://img.shields.io/npm/v/get-json-type)](https://www.npmjs.com/package/get-json-type)
+[![Types](https://img.shields.io/npm/types/get-json-type.svg)](https://www.npmjs.com/package/get-json-type)
+[![Checks](https://img.shields.io/github/checks-status/a16n-dev/get-json-type/main)](https://www.npmjs.com/package/get-json-type)
 
 Does exactly what it says on the tin: generates a typescript type for any JSON input:
 
