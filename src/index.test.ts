@@ -172,17 +172,26 @@ describe('getJsonType', () => {
     });
   });
 
-  // Error handling tests
-  describe('error handling', () => {
-    it('should return "any" by default for unsupported types', () => {
-      const result = getJsonType(undefined as any);
-      expect(result).toBe('any');
+  // Undefined handling tests
+  describe('undefined handling', () => {
+    it('should return "undefined" for undefined values', () => {
+      const result = getJsonType(undefined);
+      expect(result).toBe('undefined');
     });
 
-    it('should throw error when throwOnUnknown is true', () => {
-      expect(() => {
-        getJsonType(undefined as any, { throwOnUnknown: true });
-      }).toThrow('Unknown JSON type: undefined');
+    it('should handle undefined in arrays', () => {
+      const result = getJsonType([1, undefined, 'hello']);
+      expect(result).toBe('(number | undefined | string)[]');
+    });
+
+    it('should handle undefined in objects', () => {
+      const result = getJsonType({ name: 'John', age: undefined });
+      expect(result).toBe('{ name: string; age: undefined }');
+    });
+
+    it('should handle undefined with type names', () => {
+      const result = getJsonType(undefined, { typeName: 'MaybeValue' });
+      expect(result).toBe('type MaybeValue = undefined');
     });
   });
 });

@@ -1,11 +1,11 @@
 {
   "name": "get-json-type",
-  "version": "0.1.1",
+  "version": "1.0.0",
   "description": "Does what it says on the tin. Generates a Typescript type from arbitrary JSON",
   "keywords": ["typescript", "json", "type", "generator", "schema"],
-  "author": "Alex Nicholson <alex@alexnicholson.dev>",
+  "author": "Alex Nicholson <alex@a16n.dev>",
   "license": "MIT",
-  "homepage": "https://github.com/a16n-dev/get-json-type#readme",
+  "homepage": "https://github.com/a16n-dev/get-json-type",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/a16n-dev/get-json-type.git"

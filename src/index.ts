@@ -1,8 +1,9 @@
-export type JsonType =
+type JsonType =
   | string
   | number
   | boolean
   | null
+  | undefined
   | JsonType[]
   | { [key: string]: JsonType };
 
@@ -19,6 +20,7 @@ function _getJsonType(
   depth = 0
 ): string {
   if (json === null) return 'null';
+  if (json === undefined) return 'undefined';
   if (typeof json === 'string') return 'string';
   if (typeof json === 'number') return 'number';
   if (typeof json === 'boolean') return 'boolean';
