@@ -1,6 +1,6 @@
 {
   "name": "get-json-type",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Does what it says on the tin. Generates a Typescript type from arbitrary JSON",
   "keywords": ["typescript", "json", "type", "generator", "schema"],
   "author": "Alex Nicholson <alex@alexnicholson.dev>",
@@ -28,7 +28,7 @@
     "dev": "tsc --watch",
     "test": "vitest",
     "check": "tsc --noEmit",
-    "prepublishOnly": "npm run build"
+    "prepublishOnly": "rm -rf dist && pnpm run build"
   },
   "packageManager": "pnpm@9.15.4+sha512.b2dc20e2fc72b3e18848459b37359a32064663e5627a51e4c74b2c29dd8e8e0491483c3abb40789cfd578bf362fb6ba8261b05f0387d76792ed6e23ea3b1b6a0",
   "devDependencies": {
