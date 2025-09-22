@@ -1,6 +1,6 @@
 {
   "name": "get-json-type",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "Does what it says on the tin. Generates a Typescript type from arbitrary JSON",
   "keywords": [
     "typescript",

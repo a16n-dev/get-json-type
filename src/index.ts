@@ -12,6 +12,7 @@ type getJsonTypeOpts = {
   indentSize?: number;
   multiline?: boolean;
   typeName?: string;
+  useLiteralTypes?: boolean;
 };
 
 function _getJsonType(
@@ -21,9 +22,6 @@ function _getJsonType(
 ): string {
   if (json === null) return 'null';
   if (json === undefined) return 'undefined';
-  if (typeof json === 'string') return 'string';
-  if (typeof json === 'number') return 'number';
-  if (typeof json === 'boolean') return 'boolean';
 
   if (Array.isArray(json)) {
     if (json.length === 0) return 'any[]';
@@ -65,6 +63,16 @@ function _getJsonType(
     }
   }
 
+  if (opts.useLiteralTypes) {
+    if (typeof json === 'string') return `"${json.replace(/"/g, '\\"')}"`;
+    if (typeof json === 'number') return `${json}`;
+    if (typeof json === 'boolean') return `${json}`;
+  }
+
+  if (typeof json === 'string') return 'string';
+  if (typeof json === 'number') return 'number';
+  if (typeof json === 'boolean') return 'boolean';
+
   if (opts.throwOnUnknown) {
     throw new Error(`Unknown JSON type: ${typeof json}`);
   }
@@ -72,10 +80,7 @@ function _getJsonType(
   return 'any';
 }
 
-export function getJsonType(
-  json: JsonType,
-  opts: getJsonTypeOpts = {}
-): string {
+export function getJsonType(json: any, opts: getJsonTypeOpts = {}): string {
   const typeString = _getJsonType(json, opts, 0);
 
   if (opts.typeName) {

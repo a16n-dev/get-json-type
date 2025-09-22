@@ -43,7 +43,7 @@ All options are optional. The available options are:
 |indentSize|number|`2`| Number of spaces to use for indentation when multiline is true.                                                                                       |
 |typeName|string|`undefined`| If provided, wraps the output type in a type alias with the given name.                                                                               |
 |throwOnUnknown|boolean|`false`| If true, throws an error when encountering a value that isn't valid JSON (e.g., functions, symbols). If false, these values are represented as `any`. |
-
+|useLiteralTypes|boolean|`false`| If true, uses literal types for string, number, and boolean values (e.g., `"hello"` instead of `string`, `42` instead of `number`).                   |
 ## Development
 
 To build the project, run:
