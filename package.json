@@ -1,6 +1,6 @@
 {
   "name": "get-json-type",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Does what it says on the tin. Generates a Typescript type from arbitrary JSON",
   "keywords": ["typescript", "json", "type", "generator", "schema"],
   "author": "Alex Nicholson <alex@a16n.dev>",
@@ -11,24 +11,32 @@
     "url": "git+https://github.com/a16n-dev/get-json-type.git"
   },
   "type": "module",
-  "main": "./dist/index.js",
-  "module": "./dist/index.js",
-  "types": "./dist/index.d.ts",
+  "main": "./dist/cjs/index.js",
+  "module": "./dist/esm/index.js",
+  "types": "./dist/esm/index.d.ts",
   "exports": {
     ".": {
-      "default": "./dist/index.js",
-      "types": "./dist/index.d.ts"
+      "import": {
+        "types": "./dist/esm/index.d.ts",
+        "default": "./dist/esm/index.js"
+      },
+      "require": {
+        "types": "./dist/cjs/index.d.ts",
+        "default": "./dist/cjs/index.js"
+      }
     }
   },
   "files": [
     "dist"
   ],
   "scripts": {
-    "build": "tsc",
+    "build": "rm -rf dist && pnpm run build:esm && pnpm run build:cjs",
+    "build:esm": "tsc -p tsconfig.json",
+    "build:cjs": "tsc -p tsconfig.cjs.json",
     "dev": "tsc --watch",
     "test": "vitest",
     "check": "tsc --noEmit",
-    "prepublishOnly": "rm -rf dist && pnpm run build"
+    "prepublishOnly": "pnpm run build"
   },
   "packageManager": "pnpm@9.15.4+sha512.b2dc20e2fc72b3e18848459b37359a32064663e5627a51e4c74b2c29dd8e8e0491483c3abb40789cfd578bf362fb6ba8261b05f0387d76792ed6e23ea3b1b6a0",
   "devDependencies": {
