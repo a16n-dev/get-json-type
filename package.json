@@ -10,6 +10,9 @@
     "schema"
   ],
   "author": "Alex Nicholson <alex@a16n.dev>",
+  "engines": {
+    "node": ">=22.19.0"
+  },
   "license": "MIT",
   "homepage": "https://github.com/a16n-dev/get-json-type",
   "repository": {
