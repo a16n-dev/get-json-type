@@ -1,6 +1,6 @@
 {
   "name": "get-json-type",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Does what it says on the tin. Generates a Typescript type from arbitrary JSON",
   "keywords": ["typescript", "json", "type", "generator", "schema"],
   "author": "Alex Nicholson <alex@a16n.dev>",
@@ -16,7 +16,7 @@
   "types": "./dist/index.d.ts",
   "exports": {
     ".": {
-      "import": "./dist/index.js",
+      "default": "./dist/index.js",
       "types": "./dist/index.d.ts"
     }
   },
